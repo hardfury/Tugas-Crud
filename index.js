@@ -4,6 +4,7 @@ import db from "./config/database.js";
 import userRouter from "./router/user.js"
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv"
+import authRouter from "./router/auth.js"
 
 dotenv.config()
 const app = express()
@@ -27,6 +28,7 @@ app.use(express.json())
 app.use(cors(corsOptions))
 app.use(cookieParser())
 app.use("/api/user", userRouter)
+app.use("/api/auth", authRouter)
 app.listen(port,() => {
     console.log("server berjalan di port:", port)
 })
